@@ -36,9 +36,9 @@ class Main extends CI_Controller {
 //                print_r($data['top_menu']);
 //		echo "</pre>";
 //		die();
-//                $this->load->view('fe/common/header.php',$data);
+                $this->load->view('header.php',$data);
                 $this->load->view($page.'.php',$data);
-//   $this->load->view('fe/common/footer.php',$data);
+                $this->load->view('footer.php',$data);
     }
 
     public function _renderViewContact($page,$data) {

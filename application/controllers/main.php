@@ -51,7 +51,9 @@ class Main extends CI_Controller {
                 //$data['top_menu']=$this->Cms->get_topmenu();
 //                $data['product_cat']=$this->Cms->get_product_cat();
 //                $this->load->view('fe/common/product_gallery_header.php',$data);
-              $this->load->view('fe/'.$page.'.php',$data);
+                 $this->load->view('header.php',$data);
+                  $this->load->view($page.'.php',$data);
+                  $this->load->view('footer.php',$data);
       //          $this->load->view('fe/common/footer.php',$data);
     }
 
@@ -85,7 +87,7 @@ class Main extends CI_Controller {
     public function page($id)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
-                 $data['newsList'] = $this->Cms->get_news_list();
+                $data['newsList'] = $this->Cms->get_news_list();
 
 //		echo "<pre>";
 //                print_r($data['pageDetail']);
@@ -116,11 +118,24 @@ class Main extends CI_Controller {
                 $this->_renderView('gallery',$data);
     }
 
-    public function product()
+    public function product($id)
     {
-		$data['productContent'] = $this->Cms->get_recruitment_content_all();
+		//$data['pageDetail'] = $this->Cms->get_page_content($id);
+                $data['newsList'] = $this->Cms->get_news_list();
+                $data['productDetail'] = $this->Cms->get_productDetail($id);
+//                echo "<pre>";
+//                print_r($data['productDetail']);
+//                echo "</pre>";
+//                die();
                 $this->_renderView('product',$data);
-    }	
+    }
+    
+     public function newslist()
+    {
+		$data['pageDetail'] = $this->Cms->get_page_content(1);
+                $data['newsList'] = $this->Cms->get_news_list();
+                $this->_renderView('news_list',$data);
+    }
    
     public function recruitment_details($id)
     {
@@ -152,8 +167,8 @@ class Main extends CI_Controller {
     {
 				
                         //$data['contact_us_data']=$this->Cms->get_page_content(19);
-		       
-                        $data='';
+		        $data['pageDetail'] = $this->Cms->get_page_content(1);
+                        $data['newsList'] = $this->Cms->get_news_list();
                         $this->_renderViewContact('contact_us',$data);
     }
  	

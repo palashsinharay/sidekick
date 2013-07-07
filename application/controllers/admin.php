@@ -60,6 +60,7 @@ class Admin extends CI_Controller {
 
 
     public function index() {
+        echo "hiiii";
         redirect('admin/cms_page');
 //        if($this->check_login()){
 //            redirect('admin/cms_page');
@@ -130,6 +131,8 @@ class Admin extends CI_Controller {
     
     function cms_page() {
         
+        echo "hiiii";
+        die();
         $crud = new grocery_CRUD();
 
         //below code is for datagrid view

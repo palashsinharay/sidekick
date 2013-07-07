@@ -7,7 +7,7 @@ class Cms extends CI_Model {
 	public $_table = 'pages';
 	public $_meduiatable = 'media_gallery';
 	public $_topmenu = 'topmenu';
-	public $_product = 'products';
+	public $_products = 'products';
     public $_tender = 'tender';
 	public $_resource_center = 'resource_center';
 	public $_categories = 'categories';
@@ -137,14 +137,7 @@ class Cms extends CI_Model {
 	}
 	
         //function for getting gallery page content
-	function get_productList($catId)
-	{
-		$query = $this->db->get_where($this->_product,array('categories_id' => $catId));
-		
-		$this->result = $query->result();
 
-		return $this->result;
-	}
 	function get_fetured_product()
 	{
 		$query = $this->db->get_where($this->_product,array('featured' => 1),4);
@@ -157,12 +150,21 @@ class Cms extends CI_Model {
         
         
         function get_productDetail($product_id) {
-                $query = $this->db->get_where($this->_product,array('product_id' => $product_id));
+                $query = $this->db->get_where($this->_products,array('pid' => $product_id));
 		
 		$this->result = $query->result();
 
 		return $this->result[0];
         }
+     //function for getting gallery page content
+	function get_productList($limit=50)
+	{
+                $query = $this->db->get($this->_products, $limit);
+		
+		$this->result = $query->result();
+	
+		return $this->result;
+	}        
 	function get_recruitment_content($id)
 	{
 		$query = $this->db->get_where($this->_job,array('id =' => $id));

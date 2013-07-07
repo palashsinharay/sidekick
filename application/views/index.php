@@ -109,12 +109,12 @@
 
 <ul>
 <?php foreach($newsList as $key => $row):?>
-<li> <?php echo $row->content;?> </li>
+<li> <?php echo $row->title;?> </li>
 
 <?php endforeach;?>
 </ul>
 
-<a href="#" class="more">...more</a>
+<a href="<?php echo site_url('index.php/main/newslist');?>" class="more">...more</a>
 
 </div> 
 </div>

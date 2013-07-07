@@ -156,11 +156,11 @@ class Admin extends CI_Controller {
         //$crud->add_fields('menutitle','content','type','metatitle','metadesc','metakey','status','pid','date','filename','cid');
         //$crud->edit_fields('menutitle','content','type','metatitle','metadesc','metakey','status','pid','date','filename','cid');
 
-        $crud->add_fields('meta','content','name');
-        $crud->edit_fields('meta','content','name');
+        $crud->add_fields('meta','content','name','type');
+        $crud->edit_fields('meta','content','name','type');
 
         
-        $crud->required_fields('content','name');	
+        $crud->required_fields('content','name','type');	
 
 		
 	$output = $crud->render();

@@ -4,7 +4,7 @@
 
 class Cms extends CI_Model {
 
-	public $_table = 'cmspage';
+	public $_table = 'pages';
 	public $_meduiatable = 'media_gallery';
 	public $_topmenu = 'topmenu';
 	public $_product = 'products';
@@ -71,7 +71,7 @@ class Cms extends CI_Model {
 	function get_page_content($id)
 	{
 
-		$query = $this->db->get_where($this->_table,array('cid =' => $id));
+		$query = $this->db->get_where($this->_table,array('id =' => $id));
 		$this->result = $query->result();
 		/*echo "<pre>";
 		print_r($this->result);

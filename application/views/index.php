@@ -2,7 +2,7 @@
   //print_r($data->newsList);
 //print_r($data['newsList']) ;
 //echo "<pre>";
-//print_r($newsList[0]->content) ;
+//print_r($pageDetail->content) ;
 //die();
 
 
@@ -76,10 +76,11 @@
 <div class="content_area">
 <div class="content">
 <div class="content_area_left">
-<h2>About Us</h2>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with deskt3p publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with deskt3p publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with deskt3p publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+<h2><?php echo $pageDetail->name;?></h2>
+<p>
+        <?php  print_r($pageDetail->content);?>
+</p>
+
 <a href="#" class="more">...more</a>
 </div>
 
@@ -107,9 +108,9 @@
 <h2>Latest Offers</h2>
 <?php
 echo "<pre>";
-
 print_r($newsList);
 echo "<pre>";
+echo $newsList[0]->content;
 ?>
 <ul>
 <?php foreach($newslist as $row):?>

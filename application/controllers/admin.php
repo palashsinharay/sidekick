@@ -60,13 +60,13 @@ class Admin extends CI_Controller {
 
 
     public function index() {
-        
-        if($this->check_login()){
-            redirect('admin/cms_page');
-        } else {
-            $datalogin['message'] = NULL;
-            $this->load->view('fe/login.php',$datalogin);
-        }
+        redirect('admin/cms_page');
+//        if($this->check_login()){
+//            redirect('admin/cms_page');
+//        } else {
+//            $datalogin['message'] = NULL;
+//            $this->load->view('login.php',$datalogin);
+//        }
         
     }
     
@@ -129,24 +129,20 @@ class Admin extends CI_Controller {
     }
     
     function cms_page() {
+        
         $crud = new grocery_CRUD();
 
         //below code is for datagrid view
         $crud->set_theme('datatables');
-        $crud->set_table('cmspage')
+        $crud->set_table('pages')
             ->set_subject('CMS PAGE')
 
           //  ->columns('menutitle','content','type','metatitle','metadesc','metakey','status','date','pid','filename')
-              ->columns('menutitle','content','type','metatitle','metadesc','metakey','status','date','filename')                
+              ->columns('meta','content','name');                
             
-            ->display_as('type','Content type')
-            ->display_as('menutitle','Title')
-            ->display_as('content','Content')
+            
           //  ->display_as('pid','Parent id')
-            ->display_as('filename','Image')
-            ->display_as('metatitle','Metatitle')
-			->display_as('metadesc','Metadesc')
-			->display_as('metakey','Metakey');
+            
         
         
         //below code is for edit and add
@@ -157,25 +153,12 @@ class Admin extends CI_Controller {
         //$crud->add_fields('menutitle','content','type','metatitle','metadesc','metakey','status','pid','date','filename','cid');
         //$crud->edit_fields('menutitle','content','type','metatitle','metadesc','metakey','status','pid','date','filename','cid');
 
-        $crud->add_fields('menutitle','content','type','metatitle','metadesc','metakey','status','date','filename');
-        $crud->edit_fields('menutitle','content','type','metatitle','metadesc','metakey','status','date','filename');
+        $crud->add_fields('meta','content','name');
+        $crud->edit_fields('meta','content','name');
 
         
-        $crud->required_fields('menutitle','content','type','status','date');	
-        
-       // $crud->callback_add_field('pid',array($this,'add_field_callback_1'));
-       // $crud->callback_edit_field('pid', array($this, 'add_field_callback_1'));
+        $crud->required_fields('content','name');	
 
-//below is validation
-        //$crud->set_rules('lastName','last name nnn','numeric|required')
-        //     ->set_rules('firstName','first name nnn','integer|required')
-        //     ->set_rules('email','email nnn','valid_email|required');
-        //below code is for file upload
-        $crud->set_field_upload('filename','assets/uploads/files');
-//        $crud->required_fields('menutitle','content','filename');
-        
-        $crud->set_relation('cid','cmspage','pid');
-		//$crud->set_relation('categories_id','categories','category_name');
 		
 	$output = $crud->render();
         $this->_example_output($output);

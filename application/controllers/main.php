@@ -120,7 +120,13 @@ class Main extends CI_Controller {
     {
 		$data['productContent'] = $this->Cms->get_recruitment_content_all();
                 $this->_renderView('product',$data);
-    }	
+    }
+    
+     public function newslist()
+    {
+		$data['newsList'] = $this->Cms->get_news_list();
+                $this->_renderView('news_list',$data);
+    }
    
     public function recruitment_details($id)
     {

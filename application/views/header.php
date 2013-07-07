@@ -76,28 +76,27 @@ $(function() {
 
     <ul class="sf-menu" id="example">
       <li>
-        <a href="#" class="current">Home</a>
+        <a href="<?php echo site_url();?>" class="current">Home</a>
   
       </li>
       <li>
-        <a href="#">About Us</a>
+        <a href="<?php echo site_url('index.php/main/page/1');?>">About Us</a>
       </li>
+<?php 
+$data['productList'] = $this->Cms->get_productList(); 
+//echo "<pre>";
+//print_r($data['productList']);
+//echo "</pre>";
+?>        
       <li>
         <a href="#">Products</a>
         <ul>
+            <?php foreach($data['productList'] as $key => $row):?>
           <li>
-            <a href="#">Product 1</a>
+            <a href="<?php echo site_url('index.php/main/product/'.$row->pid);?>"><?php echo $row->product_title;?></a>
            </li> 
-           <li>
-            <a href="#">Product 2</a>
-           </li>  
-           <li>
-            <a href="#">Product 3</a>
-           </li> 
-            
-            
-            
-            </ul>
+            <?php endforeach;?>
+       </ul>
           
        
     
@@ -106,7 +105,7 @@ $(function() {
         <a href="#">gallery</a>
       </li>
   <li>
-        <a href="#">Contact Us</a>
+        <a href="<?php echo site_url('index.php/main/contact_us');?>">Contact Us</a>
       </li>
   </ul>
   

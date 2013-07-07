@@ -8,11 +8,13 @@ class Cms extends CI_Model {
 	public $_meduiatable = 'media_gallery';
 	public $_topmenu = 'topmenu';
 	public $_product = 'products';
-        public $_tender = 'tender';
+    public $_tender = 'tender';
 	public $_resource_center = 'resource_center';
 	public $_categories = 'categories';
 	public $_lowerSlider = 'lower_slider';
-        public $_user = 'users';
+    public $_user = 'users';
+	public $_newstable = 'news';
+	
 	public $result = null;
 
 	function __construct()
@@ -31,7 +33,7 @@ class Cms extends CI_Model {
         }
         function get_product_cat()
         {
-                $query = $this->db->get_where($this->_categories,array ('status' => '1'));
+        $query = $this->db->get_where($this->_categories,array ('status' => '1'));
 		//echo $this->db->last_query();
 		//die();
 		$this->result = $query->result();
@@ -117,7 +119,7 @@ class Cms extends CI_Model {
         //function for getting gallery page content
 	function get_news_list($limit=50)
 	{
-                $query = $this->db->get($this->_newstable, $limit);
+      $query = $this->db->get($this->_newstable, $limit);
 		
 		$this->result = $query->result();
 	

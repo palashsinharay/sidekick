@@ -1,4 +1,12 @@
+<?php 
+  //print_r($data->newsList);
+//print_r($data['newsList']) ;
+//echo "<pre>";
+//print_r($newsList[0]->content) ;
+//die();
 
+
+?>
 
 <div class="container">
 
@@ -97,14 +105,17 @@
 </table>
 <div class="clear_20"></div>
 <h2>Latest Offers</h2>
+<?php
+echo "<pre>";
+
+print_r($newsList);
+echo "<pre>";
+?>
 <ul>
+<?php foreach($newslist as $row):?>
+<li> <?php echo $row->content;?> </li>
 
-<li> djsagasjdghjasgjdgasjgdjasgdgasjgdash djsagasjdghjasgjdgasjgdjasgdgasjgdash </li>
-<li> djsagasjdghjasgjdgasjgdjasgdgasjgdash djsagasjdghjasgjdgasjgdjasgdgasjgdash </li>
-<li> djsagasjdghjasgjdgasjgdjasgdgasjgdash djsagasjdghjasgjdgasjgdjasgdgasjgdash </li>
-<li> djsagasjdghjasgjdgasjgdjasgdgasjgdash djsagasjdghjasgjdgasjgdjasgdgasjgdash </li>
-<li> djsagasjdghjasgjdgasjgdjasgdgasjgdash djsagasjdghjasgjdgasjgdjasgdgasjgdash </li>
-
+<?php endforeach;?>
 </ul>
 
 <a href="#" class="more">...more</a>

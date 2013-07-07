@@ -21,7 +21,7 @@ class Main extends CI_Controller {
 		//$config['mailtype'] = 'html';
 		//$this->email->initialize($this->config);
 
-		//$this->load->model('Cms');
+		$this->load->model('Cms');
  
     }
     public function _renderView($page,$data) {
@@ -64,7 +64,19 @@ class Main extends CI_Controller {
 //		echo "</pre>";
 //		die();
 		
-        $this->_renderView('index',$data = NULL);
+//echo "hiii";   
+//die();    
+
+   
+			  $data['newsList'] = $this->Cms->get_news_list();
+			 // $this->_renderView('news_list',$data);
+             // echo "<pre>";
+             // print_r($data['newsList']);
+			  //echo "</pre>";
+			  //die();
+
+	  //$this->_renderView('index',$data = NULL);
+	  $this->_renderView('index',$data);
         
         
 

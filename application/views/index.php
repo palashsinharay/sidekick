@@ -106,14 +106,9 @@
 </table>
 <div class="clear_20"></div>
 <h2>Latest Offers</h2>
-<?php
-echo "<pre>";
-print_r($newsList);
-echo "<pre>";
-echo $newsList[0]->content;
-?>
+
 <ul>
-<?php foreach($newslist as $row):?>
+<?php foreach($newsList as $key => $row):?>
 <li> <?php echo $row->content;?> </li>
 
 <?php endforeach;?>

@@ -85,15 +85,17 @@ class Main extends CI_Controller {
     public function page($id)
     {
 		$data['pageDetail'] = $this->Cms->get_page_content($id);
+                 $data['newsList'] = $this->Cms->get_news_list();
 
 //		echo "<pre>";
-//              print_r($data['pageDetail']);
+//                print_r($data['pageDetail']);
 //		echo "</pre>";
 //		die();
+                
                 switch ($data['pageDetail']->type) {
-                    case 'content':$this->_renderView('inner_page',$data);
+                    case 'content':$this->_renderView('page',$data);
                         break;
-                    case 'product':$this->_renderView('inner_page',$data);
+                    case 'product':$this->_renderView('page',$data);
                         break;
                      case 'contact':$this->_renderViewContact('contact_us',$data);
                         break;
@@ -108,7 +110,9 @@ class Main extends CI_Controller {
 
     public function gallery()
     {
-		$data['galleryContent'] = $this->Cms->get_gallery_content_all();
+		echo "hello";
+                die();
+                $data['galleryContent'] = $this->Cms->get_gallery_content_all();
                 $this->_renderView('gallery',$data);
     }
 

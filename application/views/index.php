@@ -81,7 +81,7 @@
         <?php  print_r($pageDetail->content);?>
 </p>
 
-<a href="#" class="more">...more</a>
+<a href="<?php echo site_url('index.php/main/page/'.$pageDetail->id);?>" class="more">...more</a>
 </div>
 
 <div class="content_area_rihgt">
